@@ -23,6 +23,18 @@ int main() {
         cout << "Podaj numer czynnosci, ktora chcesz wykonac" << endl;
         cout << "0. Wyjscie" << endl;
         cin >> wyjscie;
+        switch (wyjscie) {
+            case 1:
+                cout << "Podaj liczbe, dla ktorej chcesz obliczyc silnie: ";
+                cin >> a;
+                cout << "Silnia z " << a << " wynosi: " << silnia(a) << endl;
+                break;
+            case 0:
+                cout << "Koniec programu." << endl;
+                break;
+            default:
+                cout << "Niepoprawny numer czynnosci. Sprobuj ponownie." << endl;
+        }
     } while(wyjscie != 0);
     return 0;
 }
