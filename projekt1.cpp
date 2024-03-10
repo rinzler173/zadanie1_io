@@ -1,4 +1,5 @@
 #include <iostream>
+#include <cmath>
 
 using namespace std;
 
@@ -11,16 +12,27 @@ int silnia(int n) {
     }
 }
 
+bool czyPierwsza(int liczba) {
+    if(liczba <= 1) {
+        return false;
+    }
+    for(int i = 2; i <= sqrt(liczba); ++i) {
+        if(liczba % i == 0) {
+            return false;
+        }
+    }
+    return true;
+}
+
 int main() {
-    int a, b;
-    cout << "Podaj liczbe calkowita ";
-    cin >> a >> b;
+    int a;
     int wyjscie;
     do {
         cout << endl;
-        cout << endl;
         cout << "MENU" << endl;
         cout << "Podaj numer czynnosci, ktora chcesz wykonac" << endl;
+	cout << "1. Oblicz silnie liczby" << endl;
+	cout << "2. Sprawdz czy liczba jest pierwsza" << endl;
         cout << "0. Wyjscie" << endl;
         cin >> wyjscie;
         switch (wyjscie) {
@@ -28,6 +40,16 @@ int main() {
                 cout << "Podaj liczbe, dla ktorej chcesz obliczyc silnie: ";
                 cin >> a;
                 cout << "Silnia z " << a << " wynosi: " << silnia(a) << endl;
+                break;
+	    case 2:
+                int liczba;
+                cout << "Podaj liczbe do sprawdzenia: ";
+                cin >> liczba;
+                if(czyPierwsza(liczba)) {
+                    cout << liczba << " jest liczba pierwsza." << endl;
+                } else {
+                    cout << liczba << " nie jest liczba pierwsza." << endl;
+                }
                 break;
             case 0:
                 cout << "Koniec programu." << endl;
