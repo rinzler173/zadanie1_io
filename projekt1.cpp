@@ -2,6 +2,15 @@
 
 using namespace std;
 
+// Deklaracja funkcji wyznaczaj¹cej silniê liczby
+int silnia(int n) {
+    if (n == 0) {
+        return 1;
+    } else {
+        return n * silnia(n - 1);
+    }
+}
+
 int main() {
     int a, b;
     cout << "Podaj liczbe calkowita ";
